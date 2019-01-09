@@ -24,17 +24,17 @@ export default {
     setUser: (state, user) => {
       if (user) {
         state.user = {
-          uid: state.uid,
+          uid:   user.uid,
           email: user.email
         };
         state.logged = true;
       } else {
-        state.user = null;
+        state.user   = null;
         state.logged = false;
       }
     },
     setRole: (state, role) => {
-      state.role = role;
+       state.role = role;
     }
   },
 

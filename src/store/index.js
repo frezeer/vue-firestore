@@ -4,6 +4,8 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 import authModule from '@/modules/auth';
+import usersModule from '@/modules/users';
+
 
 export default new Vuex.Store ({
 
@@ -20,7 +22,8 @@ mutations :{
     setLoaded : (state, loaded) => {
               state.loaded = loaded;
     },
-    setalertMessage: (state, data ) => {
+    setalertMessage: (state, data ) =>
+    {
         state.alert.type = data.type;
         state.alert.show = data.show;
         state.alert.message = data.message;
@@ -32,6 +35,7 @@ mutations :{
     }
 },
 modules : {
-    authModule
+    authModule,
+    usersModule
 }
 });

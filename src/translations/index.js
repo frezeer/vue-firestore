@@ -75,6 +75,7 @@ export default {
       usersTable: {
         newUser: 'Añadir usuario',
         uid: 'UID',
+        role: 'roles',
         email: 'Correo electrónico',
         username: 'Usuario',
         empty: 'No hay usuarios disponibles'

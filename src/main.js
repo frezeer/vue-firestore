@@ -12,6 +12,8 @@ firebase.initializeApp(firebaseConfig);
 const firestore = firebase.firestore();
 const settings = {timestampsInSnapshots: true};
 firestore.settings(settings);
+
+//exporta la db para que sea global en todos los documentos
 export const db = firestore;
 
 import i18n from '@/config/i18n';
@@ -31,7 +33,8 @@ new Vue({
   template: '<App/>',
 
   mounted () {
-    firebase.auth().onAuthStateChanged((user) => {
+    firebase.auth().onAuthStateChanged((user) =>
+    {
       if (user) {
         db.collection('users').doc(user.uid).onSnapshot(snapshot => {
           store.commit('setUser', user);
@@ -45,5 +48,4 @@ new Vue({
       }
     })
   }
-
 });

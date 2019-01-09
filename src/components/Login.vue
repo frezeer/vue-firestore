@@ -32,13 +32,13 @@
        methods :{
           login(user)
           {
-            this.$store.dispatch('firebaseLogin',user)
-              .then(data => {
-                      db.collection('users').doc(data.user.uid).onSnapshot(snapshot => {
-                      console.log(snapshot.data());
-                      this.$router.push('/');
+            this.$store.dispatch('firebaseLogin',user).then(data =>
+            {
+                db.collection('users').doc(data.user.uid).onSnapshot(snapshot => {
+                      //console.log(snapshot.data());
+                this.$router.push('/');
                   })
-               }).catch((error) => {
+            }).catch((error) => {
                   this.message = error.message.substr(0, 100);
                   this.snackBar = true;
                  setTimeout(() => {
